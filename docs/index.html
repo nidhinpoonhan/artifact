@@ -3,131 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How AI Works: An Interactive Guide</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Research Data Documentation: Employee Performance Study</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        :root {
+            --background: #ffffff;
+            --foreground: #1a1a1a;
+            --border: oklch(0.88 0.01 100.76);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #0d1117;
+                --foreground: #e5e5e5;
+                --border: oklch(0.36 0.01 106.85);
+            }
+        }
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--foreground);
         }
-        .step-card {
-            transition: transform 0.3s ease;
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: var(--background);
+            color: var(--foreground);
         }
-        .step-card:hover {
-            transform: translateY(-5px);
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        /* Remove default border-bottom from headers */
+        .markdown-body h1, 
+        .markdown-body h2 {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Match UI table styling exactly */
+        .markdown-body table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            margin: 20px 0 !important;
+            background-color: var(--background) !important;
+            border: 1px solid var(--border) !important;
+            display: table !important;
+        }
+        .markdown-body table tr {
+            background-color: transparent !important;
+            border-top: none !important;
+        }
+        .markdown-body table td,
+        .markdown-body table th {
+            border: 1px solid var(--border) !important;
+            padding: 8px !important;
+        }
+        .markdown-body table th {
+            font-size: 1.1em !important;
+            font-weight: 600 !important;
+            background-color: color-mix(in srgb, var(--background) 95%, var(--foreground) 5%) !important;
+        }
+        .markdown-body table tr:nth-child(2n) {
+            background-color: transparent !important;
+        }
+        /* Match HR styling */
+        .markdown-body hr {
+            height: 1px !important;
+            padding: 0 !important;
+            margin: 24px 0 !important;
+            background-color: var(--border) !important;
+            border: 0 !important;
         }
     </style>
 </head>
-<body class="p-4 md:p-8">
-    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
-        <!-- Header -->
-        <header class="bg-indigo-600 text-white p-8 text-center">
-            <h1 class="text-4xl font-bold mb-4">How AI Works</h1>
-            <p class="text-xl opacity-90">Demystifying the intelligence behind the machine</p>
-        </header>
+<body class="markdown-body">
+    <div id="content"></div>
+    <script id="markdown-content" type="text/markdown"># Employee Performance and Satisfaction Study
+## Research Data Documentation
 
-        <main class="p-6 md:p-12">
-            <!-- Section 1: Definition -->
-            <section class="mb-16 flex flex-col md:flex-row items-center gap-8">
-                <div class="flex-1">
-                    <h2 class="text-3xl font-bold text-slate-800 mb-4">What is AI?</h2>
-                    <p class="text-slate-600 text-lg leading-relaxed">
-                        Artificial Intelligence (AI) is a field of computer science that creates machines capable of performing tasks that typically require human intelligence<sup>5</sup>. This includes learning from experience, recognizing patterns, and making autonomous decisions<sup>1,7</sup>.
-                    </p>
-                </div>
-                <div class="flex-1">
-                    <img src="https://storage.googleapis.com/test-media-66012/66012_0_image.png" alt="AI Brain Visualization" class="rounded-xl shadow-lg w-full">
-                </div>
-            </section>
+---
 
-            <!-- Section 2: The Core Process -->
-            <section class="mb-16">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">The AI Lifecycle</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Step 1 -->
-                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
-                        <img src="https://storage.googleapis.com/test-media-66012/66012_1_image.png" alt="Data" class="w-20 h-20 mb-4 mx-auto">
-                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">1. Data Ingestion</h3>
-                        <p class="text-slate-600 text-sm">AI systems start with vast amounts of data. This data serves as the "textbook" from which the machine learns<sup>6</sup>.</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
-                        <img src="https://storage.googleapis.com/test-media-66012/66012_2_image.png" alt="Algorithms" class="w-20 h-20 mb-4 mx-auto">
-                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">2. Pattern Recognition</h3>
-                        <p class="text-slate-600 text-sm">Advanced algorithms crunch the data repeatedly to spot patterns and correlations that humans might miss<sup>3</sup>.</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
-                        <img src="https://storage.googleapis.com/test-media-66012/66012_4_image.png" alt="Feedback" class="w-20 h-20 mb-4 mx-auto">
-                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">3. Feedback Loops</h3>
-                        <p class="text-slate-600 text-sm">The model refines its accuracy by learning from its mistakes through constant feedback loops<sup>4</sup>.</p>
-                    </div>
-                </div>
-            </section>
+## 1. Introduction
 
-            <!-- Section 3: Machine Learning -->
-            <section class="mb-16 bg-slate-900 text-white p-8 md:p-12 rounded-2xl">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="flex-1">
-                        <h2 class="text-3xl font-bold mb-6">Learning Without Direct Programming</h2>
-                        <p class="text-slate-300 text-lg mb-4">
-                            Unlike traditional software, AI isn't explicitly programmed for every scenario. Through <strong>Machine Learning</strong>, systems identify patterns to make predictions independently<sup>6</sup>.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <span class="bg-indigo-500 rounded-full p-1 mt-1">✓</span>
-                                <p><span class="font-bold">Neural Networks:</span> Modeled after the human brain to process information in layers.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="bg-indigo-500 rounded-full p-1 mt-1">✓</span>
-                                <p><span class="font-bold">Autonomy:</span> The ability to perform tasks with minimal human intervention<sup>2</sup>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <img src="https://storage.googleapis.com/test-media-66012/66012_5_image.png" alt="Neural Network Visualization" class="rounded-xl opacity-90">
-                    </div>
-                </div>
-            </section>
+### Purpose
+This document provides comprehensive documentation for a research study examining the relationship between employee performance metrics, job satisfaction, and organizational factors. The data presented here was collected from a sample of 15 employees across various departments within a mid-sized technology company during Q1 2024.
 
-            <!-- Section 4: Why it Matters -->
-            <section class="mb-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-bold text-slate-800 mb-4">The Pillars of Modern AI</h2>
-                    <p class="text-slate-600">To be effective and ethical, modern AI frameworks focus on three core components<sup>2</sup>:</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-6 border border-slate-200 rounded-lg flex gap-4">
-                        <div class="text-3xl">👁️</div>
-                        <div>
-                            <h4 class="font-bold text-slate-800">Transparency</h4>
-                            <p class="text-slate-600 text-sm">Understanding how data is used and how decisions are reached.</p>
-                        </div>
-                    </div>
-                    <div class="p-6 border border-slate-200 rounded-lg flex gap-4">
-                        <div class="text-3xl">💬</div>
-                        <div>
-                            <h4 class="font-bold text-slate-800">Explainability</h4>
-                            <p class="text-slate-600 text-sm">The ability to explain why an AI model made a specific prediction or choice.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+### Scope
+The documentation includes:
+- A structured data table containing key variables
+- A detailed codebook explaining all variables and their coding schemes
+- Contextual information for data interpretation
 
-            <!-- Footer / Sources -->
-            <footer class="mt-20 pt-8 border-t border-slate-200">
-                <h3 class="text-lg font-bold text-slate-800 mb-4">Sources</h3>
-                <ol class="text-sm text-slate-500 space-y-1">
-                    <li>1. <a href="https://www.ibm.com/think/topics/artificial-intelligence" class="text-indigo-600 hover:underline">IBM: What Is Artificial Intelligence (AI)?</a></li>
-                    <li>2. <a href="https://www.iso.org/artificial-intelligence" class="text-indigo-600 hover:underline">ISO: Artificial intelligence management framework</a></li>
-                    <li>3. <a href="https://www.coursera.org/articles/how-does-ai-work" class="text-indigo-600 hover:underline">Coursera: How Does AI Work? Basics to Know</a></li>
-                    <li>4. <a href="https://csuglobal.edu/blog/how-does-ai-actually-work" class="text-indigo-600 hover:underline">CSU Global: How AI Works</a></li>
-                    <li>5. <a href="https://meng.uic.edu/news-stories/ai-artificial-intelligence-what-is-the-definition-of-ai-and-how-does-ai-work/" class="text-indigo-600 hover:underline">UIC: What is (AI) Artificial Intelligence?</a></li>
-                    <li>6. <a href="https://cloud.google.com/learn/what-is-artificial-intelligence" class="text-indigo-600 hover:underline">Google Cloud: What is Artificial Intelligence (AI)?</a></li>
-                    <li>7. <a href="https://science.howstuffworks.com/artificial-intelligence.htm" class="text-indigo-600 hover:underline">HowStuffWorks: How Does AI Work?</a></li>
-                </ol>
-            </footer>
-        </main>
-    </div>
+---
+
+## 2. Data Collection Methodology
+
+### Sample Description
+The study employed a stratified random sampling approach to ensure representation across all major departments. Data was collected through:
+- Performance review scores (from HR records)
+- Anonymous satisfaction surveys (5-point Likert scale)
+- Administrative records (tenure, department, employment status)
+
+### Time Frame
+- **Collection Period**: January 1 - March 31, 2024
+- **Performance Review Period**: Calendar Year 2023
+- **Survey Distribution**: February 2024
+
+---
+
+## 3. Data Table
+
+### Table Description
+The following table presents the core dataset for this study. Each row represents one employee (identified by a unique Employee ID), and columns capture demographic information, organizational variables, performance metrics, and satisfaction scores. The table includes 15 observations across 6 variables.
+
+| Employee_ID | Department | Tenure_Years | Employment_Status | Performance_Score | Satisfaction_Level |
+|-------------|------------|--------------|-------------------|-------------------|--------------------|
+| E001 | ENG | 3.5 | FT | 4.2 | 4 |
+| E002 | MKT | 1.2 | FT | 3.8 | 3 |
+| E003 | HR | 5.0 | FT | 4.5 | 5 |
+| E004 | ENG | 2.1 | PT | 3.5 | 3 |
+| E005 | FIN | 7.3 | FT | 4.8 | 5 |
+| E006 | MKT | 0.8 | CT | 3.2 | 2 |
+| E007 | ENG | 4.6 | FT | 4.1 | 4 |
+| E008 | HR | 2.9 | FT | 3.9 | 4 |
+| E009 | FIN | 6.1 | FT | 4.6 | 5 |
+| E010 | ENG | 1.5 | FT | 3.7 | 3 |
+| E011 | MKT | 3.8 | FT | 4.0 | 4 |
+| E012 | FIN | 0.5 | CT | 3.3 | 2 |
+| E013 | HR | 8.2 | FT | 4.7 | 5 |
+| E014 | ENG | 2.7 | FT | 3.9 | 4 |
+| E015 | MKT | 4.1 | PT | 4.3 | 4 |
+
+---
+
+## 4. Codebook
+
+### Overview
+This codebook defines all variables used in the dataset, including their names, descriptions, data types, and possible values. Use this section to understand how data was coded and to ensure accurate interpretation of results.
+
+---
+
+### Variable Definitions
+
+#### **Employee_ID**
+- **Description**: Unique identifier assigned to each employee in the study
+- **Type**: Alphanumeric (Text)
+- **Format**: E### (E followed by three digits)
+- **Range**: E001 to E015
+- **Notes**: Identifiers are randomly assigned and do not correspond to actual employee numbers to maintain confidentiality
+
+---
+
+#### **Department**
+- **Description**: The primary organizational department where the employee works
+- **Type**: Categorical (Nominal)
+- **Possible Values**:
+  - **ENG** = Engineering
+  - **MKT** = Marketing
+  - **HR** = Human Resources
+  - **FIN** = Finance
+- **Notes**: Employees assigned to only one primary department; cross-functional roles coded based on primary reporting line
+
+---
+
+#### **Tenure_Years**
+- **Description**: Length of continuous employment with the organization, measured in years
+- **Type**: Continuous (Numeric)
+- **Unit**: Years (decimal format)
+- **Range**: 0.5 to 8.2 years
+- **Precision**: Calculated to one decimal place (e.g., 3.5 years = 3 years, 6 months)
+- **Notes**: Tenure calculated as of the survey distribution date (February 15, 2024)
+
+---
+
+#### **Employment_Status**
+- **Description**: Current employment classification of the employee
+- **Type**: Categorical (Nominal)
+- **Possible Values**:
+  - **FT** = Full-Time (≥35 hours per week, benefits-eligible)
+  - **PT** = Part-Time (20-34 hours per week, limited benefits)
+  - **CT** = Contract (temporary or project-based, no benefits)
+- **Notes**: Status reflects official HR classification at time of data collection
+
+---
+
+#### **Performance_Score**
+- **Description**: Annual performance evaluation score based on standardized company review process
+- **Type**: Continuous (Numeric)
+- **Scale**: 1.0 to 5.0
+- **Range**: 3.2 to 4.8 (in this sample)
+- **Precision**: One decimal place
+- **Interpretation**:
+  - **1.0 - 1.9**: Needs Significant Improvement
+  - **2.0 - 2.9**: Below Expectations
+  - **3.0 - 3.4**: Meets Minimum Expectations
+  - **3.5 - 4.4**: Meets Expectations
+  - **4.5 - 5.0**: Exceeds Expectations
+- **Notes**: Scores based on supervisor ratings across multiple competency areas; averaged to create composite score
+
+---
+
+#### **Satisfaction_Level**
+- **Description**: Employee's self-reported overall job satisfaction
+- **Type**: Ordinal (Categorical)
+- **Scale**: 1 to 5 (5-point Likert scale)
+- **Possible Values**:
+  - **1** = Very Dissatisfied
+  - **2** = Dissatisfied
+  - **3** = Neutral
+  - **4** = Satisfied
+  - **5** = Very Satisfied
+- **Survey Question**: "Overall, how satisfied are you with your current position?"
+- **Notes**: Collected via anonymous online survey; integer values only (no decimals)
+
+---
+
+## 5. Data Quality and Limitations
+
+### Missing Data
+No missing values are present in this dataset. All 15 employees provided complete responses across all variables.
+
+### Potential Limitations
+- **Sample Size**: The relatively small sample (n=15) limits generalizability
+- **Self-Report Bias**: Satisfaction levels are self-reported and may be subject to social desirability bias
+- **Cross-Sectional Design**: Data represents a single point in time; causal inferences are limited
+- **Single Organization**: Findings may not generalize to other organizational contexts
+
+---
+
+## 6. Usage Guidelines
+
+### Recommended Applications
+This dataset is suitable for:
+- Correlation analysis between performance and satisfaction
+- Comparative analysis across departments
+- Exploratory data visualization
+- Teaching and learning statistical methods
+
+### Citation
+When using this data, please cite as:
+> Employee Performance and Satisfaction Study (2024). Research Data Documentation. Internal Research Report, Q1 2024.
+
+### Contact Information
+For questions about this dataset or to request additional variables, please contact the Research Coordinator at research@company.com.
+
+---
+
+## 7. Version History
+
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | 2024-03-31 | Initial documentation release | Research Team |
+
+---
+
+**Document Status**: Finalized  
+**Last Updated**: March 31, 2024  
+**Review Date**: September 30, 2024</script>
+    <script>
+        marked.setOptions({
+            gfm: true,
+            breaks: true,
+            headerIds: true,
+            mangle: false
+        });
+
+        try {
+            const markdown = document.getElementById('markdown-content').textContent;
+            document.getElementById('content').innerHTML = marked.parse(markdown);
+        } catch (e) {
+            console.error('Failed to render markdown:', e);
+            const raw = document.getElementById('markdown-content').textContent;
+            document.getElementById('content').innerText = raw;
+        }
+    </script>
 </body>
 </html>
