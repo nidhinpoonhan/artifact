@@ -3,285 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Data Documentation: Employee Performance Study</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>How AI Works: A Comprehensive Guide</title>
     <style>
-        :root {
-            --background: #ffffff;
-            --foreground: #1a1a1a;
-            --border: oklch(0.88 0.01 100.76);
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #0d1117;
-                --foreground: #e5e5e5;
-                --border: oklch(0.36 0.01 106.85);
-            }
-        }
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--background);
-            color: var(--foreground);
-        }
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 45px;
-            background-color: var(--background);
-            color: var(--foreground);
+            padding: 2rem;
+            background-color: #f8f9fa;
         }
-        @media (max-width: 767px) {
-            .markdown-body {
-                padding: 15px;
-            }
+        header {
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
         }
-        /* Remove default border-bottom from headers */
-        .markdown-body h1, 
-        .markdown-body h2 {
-            border-bottom: none !important;
-            padding-bottom: 0 !important;
+        h1 {
+            color: #222;
+            margin-bottom: 0.5rem;
         }
-
-        /* Match UI table styling exactly */
-        .markdown-body table {
-            width: 100% !important;
-            border-collapse: collapse !important;
-            margin: 20px 0 !important;
-            background-color: var(--background) !important;
-            border: 1px solid var(--border) !important;
-            display: table !important;
+        h2 {
+            color: #0056b3;
+            margin-top: 2rem;
+            border-left: 4px solid #0056b3;
+            padding-left: 1rem;
         }
-        .markdown-body table tr {
-            background-color: transparent !important;
-            border-top: none !important;
+        .concept-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 1rem 0;
         }
-        .markdown-body table td,
-        .markdown-body table th {
-            border: 1px solid var(--border) !important;
-            padding: 8px !important;
+        .step-list {
+            list-style: none;
+            padding: 0;
         }
-        .markdown-body table th {
-            font-size: 1.1em !important;
-            font-weight: 600 !important;
-            background-color: color-mix(in srgb, var(--background) 95%, var(--foreground) 5%) !important;
+        .step-item {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
         }
-        .markdown-body table tr:nth-child(2n) {
-            background-color: transparent !important;
+        .step-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-weight: bold;
         }
-        /* Match HR styling */
-        .markdown-body hr {
-            height: 1px !important;
-            padding: 0 !important;
-            margin: 24px 0 !important;
-            background-color: var(--border) !important;
-            border: 0 !important;
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        sup {
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="markdown-body">
-    <div id="content"></div>
-    <script id="markdown-content" type="text/markdown"># Employee Performance and Satisfaction Study
-## Research Data Documentation
+<body>
 
----
+<header>
+    <h1>How Artificial Intelligence Works</h1>
+    <p>A comprehensive guide to the mechanics, logic, and data structures behind modern AI.</p>
+</header>
 
-## 1. Introduction
+<section>
+    <p>At its core, Artificial Intelligence (AI) is technology that enables computers and machines to simulate human-like learning, problem-solving, and decision-making<sup>1</sup>. Unlike traditional software that follows a strict set of "if-then" rules, AI systems are designed to recognize patterns and adapt based on data<sup>6</sup>.</p>
+</section>
 
-### Purpose
-This document provides comprehensive documentation for a research study examining the relationship between employee performance metrics, job satisfaction, and organizational factors. The data presented here was collected from a sample of 15 employees across various departments within a mid-sized technology company during Q1 2024.
+<section>
+    <h2>1. The Three Essential Pillars</h2>
+    <div class="concept-box">
+        <p>For AI to function, it requires three primary components working in tandem:</p>
+        <ul>
+            <li><strong>Data:</strong> The fuel of AI. Systems need massive amounts of information (text, numbers, or code) to identify patterns<sup>7</sup>.</li>
+            <li><strong>Algorithms:</strong> The mathematical instructions or "recipes" that tell the computer how to process the data and learn from it<sup>4</sup>.</li>
+            <li><strong>Computing Power:</strong> The hardware (CPUs and GPUs) required to run complex mathematical calculations at high speeds<sup>1</sup>.</li>
+        </ul>
+    </div>
+</section>
 
-### Scope
-The documentation includes:
-- A structured data table containing key variables
-- A detailed codebook explaining all variables and their coding schemes
-- Contextual information for data interpretation
+<section>
+    <h2>2. Key Subsets of AI</h2>
+    <p>AI is an umbrella term that includes several specialized fields:</p>
+    
+    <h3>Machine Learning (ML)</h3>
+    <p>A type of AI that uses algorithms to allow machines to learn and adapt from evidence (often historical data) without being explicitly programmed for every specific task<sup>4</sup>. It focuses on statistical methods to improve performance over time.</p>
 
----
+    <h3>Deep Learning</h3>
+    <p>A more advanced version of ML inspired by the structure of the human brain. It uses "neural networks" with many layers to process information in a sophisticated way, enabling tasks like speech recognition and autonomous driving<sup>3</sup>.</p>
 
-## 2. Data Collection Methodology
+    <h3>Natural Language Processing (NLP)</h3>
+    <p>The ability of machines to analyze large quantities of text to understand, interpret, and generate human language, making tools like chatbots and translators possible<sup>4</sup>.</p>
+</section>
 
-### Sample Description
-The study employed a stratified random sampling approach to ensure representation across all major departments. Data was collected through:
-- Performance review scores (from HR records)
-- Anonymous satisfaction surveys (5-point Likert scale)
-- Administrative records (tenure, department, employment status)
+<section>
+    <h2>3. The Learning Process</h2>
+    <p>Most AI systems go through a specific lifecycle to move from raw data to "intelligent" action:</p>
+    <div class="step-list">
+        <div class="step-item">
+            <strong>Data Collection & Cleaning:</strong> Gathering relevant information and removing errors or "noise" to ensure the AI learns from high-quality evidence.
+        </div>
+        <div class="step-item">
+            <strong>Training:</strong> The algorithm is exposed to the data. It makes guesses about patterns and is "corrected" when it is wrong, adjusting its internal math to get closer to the truth.
+        </div>
+        <div class="step-item">
+            <strong>The Model:</strong> Once training is complete, the resulting "knowledge" is saved as a <em>model</em>—a digital representation of what the AI has learned.
+        </div>
+        <div class="step-item">
+            <strong>Inference:</strong> The model is put to work on new, unseen data to make predictions or decisions (e.g., deciding if an email is spam).
+        </div>
+    </div>
+</section>
 
-### Time Frame
-- **Collection Period**: January 1 - March 31, 2024
-- **Performance Review Period**: Calendar Year 2023
-- **Survey Distribution**: February 2024
+<section>
+    <h2>4. Common Applications</h2>
+    <p>AI is integrated into daily life in numerous ways, including:</p>
+    <ul>
+        <li><strong>Reasoning and Problem Solving:</strong> Helping doctors diagnose diseases or financial systems detect fraud<sup>2</sup>.</li>
+        <li><strong>Personalization:</strong> Recommending movies or products based on your past behavior<sup>5</sup>.</li>
+        <li><strong>Autonomy:</strong> Powering self-driving cars and robotic systems that can navigate complex environments<sup>1</sup>.</li>
+    </ul>
+</section>
 
----
+<footer>
+    <h3>Sources</h3>
+    <ol>
+        <li><a href="https://www.ibm.com/think/topics/artificial-intelligence">IBM: What Is Artificial Intelligence (AI)?</a></li>
+        <li><a href="https://www.mtu.edu/computing/ai/">Michigan Tech: What is Artificial Intelligence?</a></li>
+        <li><a href="https://www.iso.org/artificial-intelligence">ISO: AI - What it is and how it works</a></li>
+        <li><a href="https://www.heinz.cmu.edu/media/2023/July/artificial-intelligence-explained">Carnegie Mellon University: AI Explained</a></li>
+        <li><a href="https://www.britannica.com/technology/artificial-intelligence">Britannica: Artificial intelligence</a></li>
+        <li><a href="https://www.coursera.org/articles/how-does-ai-work">Coursera: How Does AI Work? Basics to Know</a></li>
+        <li><a href="https://promactinfo.com/blogs/8-key-components-of-artificial-intelligence">Promact: 8 Key components of AI</a></li>
+    </ol>
+</footer>
 
-## 3. Data Table
-
-### Table Description
-The following table presents the core dataset for this study. Each row represents one employee (identified by a unique Employee ID), and columns capture demographic information, organizational variables, performance metrics, and satisfaction scores. The table includes 15 observations across 6 variables.
-
-| Employee_ID | Department | Tenure_Years | Employment_Status | Performance_Score | Satisfaction_Level |
-|-------------|------------|--------------|-------------------|-------------------|--------------------|
-| E001 | ENG | 3.5 | FT | 4.2 | 4 |
-| E002 | MKT | 1.2 | FT | 3.8 | 3 |
-| E003 | HR | 5.0 | FT | 4.5 | 5 |
-| E004 | ENG | 2.1 | PT | 3.5 | 3 |
-| E005 | FIN | 7.3 | FT | 4.8 | 5 |
-| E006 | MKT | 0.8 | CT | 3.2 | 2 |
-| E007 | ENG | 4.6 | FT | 4.1 | 4 |
-| E008 | HR | 2.9 | FT | 3.9 | 4 |
-| E009 | FIN | 6.1 | FT | 4.6 | 5 |
-| E010 | ENG | 1.5 | FT | 3.7 | 3 |
-| E011 | MKT | 3.8 | FT | 4.0 | 4 |
-| E012 | FIN | 0.5 | CT | 3.3 | 2 |
-| E013 | HR | 8.2 | FT | 4.7 | 5 |
-| E014 | ENG | 2.7 | FT | 3.9 | 4 |
-| E015 | MKT | 4.1 | PT | 4.3 | 4 |
-
----
-
-## 4. Codebook
-
-### Overview
-This codebook defines all variables used in the dataset, including their names, descriptions, data types, and possible values. Use this section to understand how data was coded and to ensure accurate interpretation of results.
-
----
-
-### Variable Definitions
-
-#### **Employee_ID**
-- **Description**: Unique identifier assigned to each employee in the study
-- **Type**: Alphanumeric (Text)
-- **Format**: E### (E followed by three digits)
-- **Range**: E001 to E015
-- **Notes**: Identifiers are randomly assigned and do not correspond to actual employee numbers to maintain confidentiality
-
----
-
-#### **Department**
-- **Description**: The primary organizational department where the employee works
-- **Type**: Categorical (Nominal)
-- **Possible Values**:
-  - **ENG** = Engineering
-  - **MKT** = Marketing
-  - **HR** = Human Resources
-  - **FIN** = Finance
-- **Notes**: Employees assigned to only one primary department; cross-functional roles coded based on primary reporting line
-
----
-
-#### **Tenure_Years**
-- **Description**: Length of continuous employment with the organization, measured in years
-- **Type**: Continuous (Numeric)
-- **Unit**: Years (decimal format)
-- **Range**: 0.5 to 8.2 years
-- **Precision**: Calculated to one decimal place (e.g., 3.5 years = 3 years, 6 months)
-- **Notes**: Tenure calculated as of the survey distribution date (February 15, 2024)
-
----
-
-#### **Employment_Status**
-- **Description**: Current employment classification of the employee
-- **Type**: Categorical (Nominal)
-- **Possible Values**:
-  - **FT** = Full-Time (≥35 hours per week, benefits-eligible)
-  - **PT** = Part-Time (20-34 hours per week, limited benefits)
-  - **CT** = Contract (temporary or project-based, no benefits)
-- **Notes**: Status reflects official HR classification at time of data collection
-
----
-
-#### **Performance_Score**
-- **Description**: Annual performance evaluation score based on standardized company review process
-- **Type**: Continuous (Numeric)
-- **Scale**: 1.0 to 5.0
-- **Range**: 3.2 to 4.8 (in this sample)
-- **Precision**: One decimal place
-- **Interpretation**:
-  - **1.0 - 1.9**: Needs Significant Improvement
-  - **2.0 - 2.9**: Below Expectations
-  - **3.0 - 3.4**: Meets Minimum Expectations
-  - **3.5 - 4.4**: Meets Expectations
-  - **4.5 - 5.0**: Exceeds Expectations
-- **Notes**: Scores based on supervisor ratings across multiple competency areas; averaged to create composite score
-
----
-
-#### **Satisfaction_Level**
-- **Description**: Employee's self-reported overall job satisfaction
-- **Type**: Ordinal (Categorical)
-- **Scale**: 1 to 5 (5-point Likert scale)
-- **Possible Values**:
-  - **1** = Very Dissatisfied
-  - **2** = Dissatisfied
-  - **3** = Neutral
-  - **4** = Satisfied
-  - **5** = Very Satisfied
-- **Survey Question**: "Overall, how satisfied are you with your current position?"
-- **Notes**: Collected via anonymous online survey; integer values only (no decimals)
-
----
-
-## 5. Data Quality and Limitations
-
-### Missing Data
-No missing values are present in this dataset. All 15 employees provided complete responses across all variables.
-
-### Potential Limitations
-- **Sample Size**: The relatively small sample (n=15) limits generalizability
-- **Self-Report Bias**: Satisfaction levels are self-reported and may be subject to social desirability bias
-- **Cross-Sectional Design**: Data represents a single point in time; causal inferences are limited
-- **Single Organization**: Findings may not generalize to other organizational contexts
-
----
-
-## 6. Usage Guidelines
-
-### Recommended Applications
-This dataset is suitable for:
-- Correlation analysis between performance and satisfaction
-- Comparative analysis across departments
-- Exploratory data visualization
-- Teaching and learning statistical methods
-
-### Citation
-When using this data, please cite as:
-> Employee Performance and Satisfaction Study (2024). Research Data Documentation. Internal Research Report, Q1 2024.
-
-### Contact Information
-For questions about this dataset or to request additional variables, please contact the Research Coordinator at research@company.com.
-
----
-
-## 7. Version History
-
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | 2024-03-31 | Initial documentation release | Research Team |
-
----
-
-**Document Status**: Finalized  
-**Last Updated**: March 31, 2024  
-**Review Date**: September 30, 2024</script>
-    <script>
-        marked.setOptions({
-            gfm: true,
-            breaks: true,
-            headerIds: true,
-            mangle: false
-        });
-
-        try {
-            const markdown = document.getElementById('markdown-content').textContent;
-            document.getElementById('content').innerHTML = marked.parse(markdown);
-        } catch (e) {
-            console.error('Failed to render markdown:', e);
-            const raw = document.getElementById('markdown-content').textContent;
-            document.getElementById('content').innerText = raw;
-        }
-    </script>
 </body>
 </html>
