@@ -3,152 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How AI Works: A Comprehensive Guide</title>
+    <title>How AI Works: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #f8f9fa;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
         }
-        header {
-            border-bottom: 2px solid #007bff;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+        .step-card {
+            transition: transform 0.3s ease;
         }
-        h1 {
-            color: #222;
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            color: #0056b3;
-            margin-top: 2rem;
-            border-left: 4px solid #0056b3;
-            padding-left: 1rem;
-        }
-        .concept-box {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 1rem 0;
-        }
-        .step-list {
-            list-style: none;
-            padding: 0;
-        }
-        .step-item {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        .step-item::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #007bff;
-            font-weight: bold;
-        }
-        footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid #ddd;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        sup {
-            font-weight: bold;
+        .step-card:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-8">
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        <!-- Header -->
+        <header class="bg-indigo-600 text-white p-8 text-center">
+            <h1 class="text-4xl font-bold mb-4">How AI Works</h1>
+            <p class="text-xl opacity-90">Demystifying the intelligence behind the machine</p>
+        </header>
 
-<header>
-    <h1>How Artificial Intelligence Works</h1>
-    <p>A comprehensive guide to the mechanics, logic, and data structures behind modern AI.</p>
-</header>
+        <main class="p-6 md:p-12">
+            <!-- Section 1: Definition -->
+            <section class="mb-16 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4">What is AI?</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        Artificial Intelligence (AI) is a field of computer science that creates machines capable of performing tasks that typically require human intelligence<sup>5</sup>. This includes learning from experience, recognizing patterns, and making autonomous decisions<sup>1,7</sup>.
+                    </p>
+                </div>
+                <div class="flex-1">
+                    <img src="https://storage.googleapis.com/test-media-66012/66012_0_image.png" alt="AI Brain Visualization" class="rounded-xl shadow-lg w-full">
+                </div>
+            </section>
 
-<section>
-    <p>At its core, Artificial Intelligence (AI) is technology that enables computers and machines to simulate human-like learning, problem-solving, and decision-making<sup>1</sup>. Unlike traditional software that follows a strict set of "if-then" rules, AI systems are designed to recognize patterns and adapt based on data<sup>6</sup>.</p>
-</section>
+            <!-- Section 2: The Core Process -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">The AI Lifecycle</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                        <img src="https://storage.googleapis.com/test-media-66012/66012_1_image.png" alt="Data" class="w-20 h-20 mb-4 mx-auto">
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">1. Data Ingestion</h3>
+                        <p class="text-slate-600 text-sm">AI systems start with vast amounts of data. This data serves as the "textbook" from which the machine learns<sup>6</sup>.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                        <img src="https://storage.googleapis.com/test-media-66012/66012_2_image.png" alt="Algorithms" class="w-20 h-20 mb-4 mx-auto">
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">2. Pattern Recognition</h3>
+                        <p class="text-slate-600 text-sm">Advanced algorithms crunch the data repeatedly to spot patterns and correlations that humans might miss<sup>3</sup>.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="step-card bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                        <img src="https://storage.googleapis.com/test-media-66012/66012_4_image.png" alt="Feedback" class="w-20 h-20 mb-4 mx-auto">
+                        <h3 class="text-xl font-bold text-indigo-700 mb-2 text-center">3. Feedback Loops</h3>
+                        <p class="text-slate-600 text-sm">The model refines its accuracy by learning from its mistakes through constant feedback loops<sup>4</sup>.</p>
+                    </div>
+                </div>
+            </section>
 
-<section>
-    <h2>1. The Three Essential Pillars</h2>
-    <div class="concept-box">
-        <p>For AI to function, it requires three primary components working in tandem:</p>
-        <ul>
-            <li><strong>Data:</strong> The fuel of AI. Systems need massive amounts of information (text, numbers, or code) to identify patterns<sup>7</sup>.</li>
-            <li><strong>Algorithms:</strong> The mathematical instructions or "recipes" that tell the computer how to process the data and learn from it<sup>4</sup>.</li>
-            <li><strong>Computing Power:</strong> The hardware (CPUs and GPUs) required to run complex mathematical calculations at high speeds<sup>1</sup>.</li>
-        </ul>
+            <!-- Section 3: Machine Learning -->
+            <section class="mb-16 bg-slate-900 text-white p-8 md:p-12 rounded-2xl">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold mb-6">Learning Without Direct Programming</h2>
+                        <p class="text-slate-300 text-lg mb-4">
+                            Unlike traditional software, AI isn't explicitly programmed for every scenario. Through <strong>Machine Learning</strong>, systems identify patterns to make predictions independently<sup>6</sup>.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="bg-indigo-500 rounded-full p-1 mt-1">✓</span>
+                                <p><span class="font-bold">Neural Networks:</span> Modeled after the human brain to process information in layers.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="bg-indigo-500 rounded-full p-1 mt-1">✓</span>
+                                <p><span class="font-bold">Autonomy:</span> The ability to perform tasks with minimal human intervention<sup>2</sup>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <img src="https://storage.googleapis.com/test-media-66012/66012_5_image.png" alt="Neural Network Visualization" class="rounded-xl opacity-90">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Why it Matters -->
+            <section class="mb-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800 mb-4">The Pillars of Modern AI</h2>
+                    <p class="text-slate-600">To be effective and ethical, modern AI frameworks focus on three core components<sup>2</sup>:</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 border border-slate-200 rounded-lg flex gap-4">
+                        <div class="text-3xl">👁️</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Transparency</h4>
+                            <p class="text-slate-600 text-sm">Understanding how data is used and how decisions are reached.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 border border-slate-200 rounded-lg flex gap-4">
+                        <div class="text-3xl">💬</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Explainability</h4>
+                            <p class="text-slate-600 text-sm">The ability to explain why an AI model made a specific prediction or choice.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer / Sources -->
+            <footer class="mt-20 pt-8 border-t border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-4">Sources</h3>
+                <ol class="text-sm text-slate-500 space-y-1">
+                    <li>1. <a href="https://www.ibm.com/think/topics/artificial-intelligence" class="text-indigo-600 hover:underline">IBM: What Is Artificial Intelligence (AI)?</a></li>
+                    <li>2. <a href="https://www.iso.org/artificial-intelligence" class="text-indigo-600 hover:underline">ISO: Artificial intelligence management framework</a></li>
+                    <li>3. <a href="https://www.coursera.org/articles/how-does-ai-work" class="text-indigo-600 hover:underline">Coursera: How Does AI Work? Basics to Know</a></li>
+                    <li>4. <a href="https://csuglobal.edu/blog/how-does-ai-actually-work" class="text-indigo-600 hover:underline">CSU Global: How AI Works</a></li>
+                    <li>5. <a href="https://meng.uic.edu/news-stories/ai-artificial-intelligence-what-is-the-definition-of-ai-and-how-does-ai-work/" class="text-indigo-600 hover:underline">UIC: What is (AI) Artificial Intelligence?</a></li>
+                    <li>6. <a href="https://cloud.google.com/learn/what-is-artificial-intelligence" class="text-indigo-600 hover:underline">Google Cloud: What is Artificial Intelligence (AI)?</a></li>
+                    <li>7. <a href="https://science.howstuffworks.com/artificial-intelligence.htm" class="text-indigo-600 hover:underline">HowStuffWorks: How Does AI Work?</a></li>
+                </ol>
+            </footer>
+        </main>
     </div>
-</section>
-
-<section>
-    <h2>2. Key Subsets of AI</h2>
-    <p>AI is an umbrella term that includes several specialized fields:</p>
-    
-    <h3>Machine Learning (ML)</h3>
-    <p>A type of AI that uses algorithms to allow machines to learn and adapt from evidence (often historical data) without being explicitly programmed for every specific task<sup>4</sup>. It focuses on statistical methods to improve performance over time.</p>
-
-    <h3>Deep Learning</h3>
-    <p>A more advanced version of ML inspired by the structure of the human brain. It uses "neural networks" with many layers to process information in a sophisticated way, enabling tasks like speech recognition and autonomous driving<sup>3</sup>.</p>
-
-    <h3>Natural Language Processing (NLP)</h3>
-    <p>The ability of machines to analyze large quantities of text to understand, interpret, and generate human language, making tools like chatbots and translators possible<sup>4</sup>.</p>
-</section>
-
-<section>
-    <h2>3. The Learning Process</h2>
-    <p>Most AI systems go through a specific lifecycle to move from raw data to "intelligent" action:</p>
-    <div class="step-list">
-        <div class="step-item">
-            <strong>Data Collection & Cleaning:</strong> Gathering relevant information and removing errors or "noise" to ensure the AI learns from high-quality evidence.
-        </div>
-        <div class="step-item">
-            <strong>Training:</strong> The algorithm is exposed to the data. It makes guesses about patterns and is "corrected" when it is wrong, adjusting its internal math to get closer to the truth.
-        </div>
-        <div class="step-item">
-            <strong>The Model:</strong> Once training is complete, the resulting "knowledge" is saved as a <em>model</em>—a digital representation of what the AI has learned.
-        </div>
-        <div class="step-item">
-            <strong>Inference:</strong> The model is put to work on new, unseen data to make predictions or decisions (e.g., deciding if an email is spam).
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>4. Common Applications</h2>
-    <p>AI is integrated into daily life in numerous ways, including:</p>
-    <ul>
-        <li><strong>Reasoning and Problem Solving:</strong> Helping doctors diagnose diseases or financial systems detect fraud<sup>2</sup>.</li>
-        <li><strong>Personalization:</strong> Recommending movies or products based on your past behavior<sup>5</sup>.</li>
-        <li><strong>Autonomy:</strong> Powering self-driving cars and robotic systems that can navigate complex environments<sup>1</sup>.</li>
-    </ul>
-</section>
-
-<footer>
-    <h3>Sources</h3>
-    <ol>
-        <li><a href="https://www.ibm.com/think/topics/artificial-intelligence">IBM: What Is Artificial Intelligence (AI)?</a></li>
-        <li><a href="https://www.mtu.edu/computing/ai/">Michigan Tech: What is Artificial Intelligence?</a></li>
-        <li><a href="https://www.iso.org/artificial-intelligence">ISO: AI - What it is and how it works</a></li>
-        <li><a href="https://www.heinz.cmu.edu/media/2023/July/artificial-intelligence-explained">Carnegie Mellon University: AI Explained</a></li>
-        <li><a href="https://www.britannica.com/technology/artificial-intelligence">Britannica: Artificial intelligence</a></li>
-        <li><a href="https://www.coursera.org/articles/how-does-ai-work">Coursera: How Does AI Work? Basics to Know</a></li>
-        <li><a href="https://promactinfo.com/blogs/8-key-components-of-artificial-intelligence">Promact: 8 Key components of AI</a></li>
-    </ol>
-</footer>
-
 </body>
 </html>
