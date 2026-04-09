@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Dataset: Table, Codebook, and Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --background: #ffffff;
+            --foreground: #1a1a1a;
+            --border: oklch(0.88 0.01 100.76);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #0d1117;
+                --foreground: #e5e5e5;
+                --border: oklch(0.36 0.01 106.85);
+            }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+        /* Remove default border-bottom from headers */
+        .markdown-body h1, 
+        .markdown-body h2 {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Match UI table styling exactly */
+        .markdown-body table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            margin: 20px 0 !important;
+            background-color: var(--background) !important;
+            border: 1px solid var(--border) !important;
+            display: table !important;
+        }
+        .markdown-body table tr {
+            background-color: transparent !important;
+            border-top: none !important;
+        }
+        .markdown-body table td,
+        .markdown-body table th {
+            border: 1px solid var(--border) !important;
+            padding: 8px !important;
+        }
+        .markdown-body table th {
+            font-size: 1.1em !important;
+            font-weight: 600 !important;
+            background-color: color-mix(in srgb, var(--background) 95%, var(--foreground) 5%) !important;
+        }
+        .markdown-body table tr:nth-child(2n) {
+            background-color: transparent !important;
+        }
+        /* Match HR styling */
+        .markdown-body hr {
+            height: 1px !important;
+            padding: 0 !important;
+            margin: 24px 0 !important;
+            background-color: var(--border) !important;
+            border: 0 !important;
+        }
+    </style>
+</head>
+<body class="markdown-body">
+    <div id="content"></div>
+    <script>
+        marked.setOptions({
+            gfm: true,
+            breaks: true,
+            headerIds: true,
+            mangle: false
+        });
+
+        try {
+            const markdown = `# Customer Satisfaction Dataset: Table, Codebook, and Analysis
+
+## Overview
+
+This artifact provides a concise, self-contained resource for working with a small, illustrative customer satisfaction dataset. It includes:
+
+- A clearly labeled data table (sample records)
+- A codebook that defines every variable and allowed values
+- A reproducible Python code snippet that loads, summarizes, and visualizes the data
+- Explanatory text and instructions for use
+
+The material is suitable for teaching, academic reports, or as a template for real-world data documentation and analysis. For best practices on data documentation, see the ICPSR codebook guidance and related resources<sup>1</sup>. For the Python data manipulation and visualization examples, the pandas and seaborn documentation were used as references<sup>2,3</sup>.
+
+---
+
+## 1. Sample Data Table
+
+Description: The table below is a small, fictional customer satisfaction dataset intended to demonstrate common data structures, categorical coding, and analysis workflows. Each row represents a customer interaction (a completed survey following a purchase).
+
+Table: Sample Customer Satisfaction Records
+
+| CustomerID | AgeGroup | Region  | SatisfactionScore | PurchaseAmount | Returned | PurchaseDate |
+|------------|----------|---------|-------------------:|----------------:|:--------:|--------------|
+| CUST001    | 25-34    | North   | 8                 | 120.50         | No       | 2026-01-12   |
+| CUST002    | 35-44    | South   | 6                 | 45.00          | Yes      | 2026-01-13   |
+| CUST003    | 18-24    | West    | 9                 | 250.00         | No       | 2026-01-14   |
+| CUST004    | 45-54    | East    | 4                 | 75.99          | No       | 2026-01-15   |
+| CUST005    | 25-34    | North   | 7                 | 99.95          | No       | 2026-01-16   |
+| CUST006    | 35-44    | West    | 5                 | 30.00          | Yes      | 2026-01-17   |
+
+Brief notes about the table:
+
+- CustomerID: Unique identifier for each respondent.
+- AgeGroup and Region are categorical variables used for group comparisons.
+- SatisfactionScore is an integer on a 1-10 scale (higher is better).
+- PurchaseAmount is in local currency units (decimal allowed).
+- Returned indicates whether the purchase was returned (Yes/No).
+- PurchaseDate is included for potential time-based analyses.
+
+---
+
+## 2. Codebook
+
+This codebook documents each variable in the table. Use it when preparing analyses or sharing data.
+
+| Variable Name     | Type       | Description                                                                 | Possible Values / Notes                         |
+|-------------------|------------|-----------------------------------------------------------------------------|-------------------------------------------------|
+| CustomerID        | Text       | Unique alphanumeric identifier for each customer (no duplicates).           | e.g., CUST001, CUST002, ...                    |
+| AgeGroup          | Categorical| Age range of the customer at time of survey.                                | '18-24', '25-34', '35-44', '45-54', '55+'      |
+| Region            | Categorical| Geographical region of purchase/delivery.                                   | 'North', 'South', 'East', 'West'               |
+| SatisfactionScore | Integer    | Self-reported satisfaction on a 1 (lowest) to 10 (highest) scale.           | 1,2,...,10                                      |
+| PurchaseAmount    | Numeric    | Total value of the purchase in local currency (two decimals).               | >= 0.00                                         |
+| Returned          | Categorical| Whether the item was returned after purchase.                               | 'Yes', 'No'                                     |
+| PurchaseDate      | Date       | Date of the purchase (ISO 8601 yyyy-mm-dd).                                 | e.g., '2026-01-12'                              |
+
+Codebook usage notes:
+
+- Missing values: Represent missing or unknown data as NA/null. Avoid using sentinel numbers (e.g., -99) without documenting them here.
+- Categorical ordering: For AgeGroup, you may use ordered categories for certain analyses (e.g., ordinal encoding).
+- Privacy: CustomerID is a pseudonymized ID. For real data, remove direct identifiers before sharing.
+
+Reference: For formal codebook templates and data documentation best practices, see ICPSR guidance<sup>1</sup>.
+
+---
+
+## 3. Analysis and Visualization (Python example)
+
+The following Python code demonstrates how to load the table into a pandas DataFrame, compute summary statistics, perform grouped comparisons, and create simple visualizations using seaborn/matplotlib.
+
+Notes before running the code:
+
+- The snippet assumes you have Python 3.8+ and the packages pandas, matplotlib, and seaborn installed. Install with: pip install pandas matplotlib seaborn
+- The data is embedded as CSV text in the snippet for reproducibility.
+
+\`\`\`python
+# Python analysis: load data, summarize, and visualize
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from io import StringIO
+
+# Embedded CSV data (small sample)
+csv_data = '''CustomerID,AgeGroup,Region,SatisfactionScore,PurchaseAmount,Returned,PurchaseDate
+CUST001,25-34,North,8,120.50,No,2026-01-12
+CUST002,35-44,South,6,45.00,Yes,2026-01-13
+CUST003,18-24,West,9,250.00,No,2026-01-14
+CUST004,45-54,East,4,75.99,No,2026-01-15
+CUST005,25-34,North,7,99.95,No,2026-01-16
+CUST006,35-44,West,5,30.00,Yes,2026-01-17
+'''
+
+# Read CSV into DataFrame
+df = pd.read_csv(StringIO(csv_data), parse_dates=['PurchaseDate'])
+
+# Basic data checks
+print('Data types:')
+print(df.dtypes)
+print('\\nFirst rows:')
+print(df.head())
+
+# Summary statistics for numeric variables
+print('\\nSummary statistics for numeric columns:')
+print(df[['SatisfactionScore', 'PurchaseAmount']].describe())
+
+# Convert categorical columns to category dtype (useful for memory and plotting)
+for col in ['AgeGroup', 'Region', 'Returned']:
+    df[col] = df[col].astype('category')
+
+# Grouped analysis: mean satisfaction by AgeGroup
+mean_by_age = df.groupby('AgeGroup')['SatisfactionScore'].mean().reset_index()
+print('\\nMean satisfaction by AgeGroup:')
+print(mean_by_age)
+
+# Visualization: Satisfaction distribution by AgeGroup
+sns.set_theme(style='whitegrid')
+plt.figure(figsize=(8,5))
+sns.boxplot(x='AgeGroup', y='SatisfactionScore', data=df, order=['18-24','25-34','35-44','45-54','55+'])
+plt.title('Satisfaction Score by Age Group')
+plt.xlabel('Age Group')
+plt.ylabel('Satisfaction Score (1-10)')
+plt.show()
+
+# Visualization: PurchaseAmount vs SatisfactionScore scatter
+plt.figure(figsize=(8,5))
+sns.scatterplot(x='PurchaseAmount', y='SatisfactionScore', hue='Region', data=df, s=80)
+plt.title('Purchase Amount vs Satisfaction')
+plt.xlabel('Purchase Amount')
+plt.ylabel('Satisfaction Score')
+plt.legend(title='Region')
+plt.show()
+
+# Simple test: Are returned items associated with lower satisfaction? Compute group means
+print('\\nMean satisfaction by Returned status:')
+print(df.groupby('Returned')['SatisfactionScore'].mean())
+\`\`\`
+
+Code explanation (brief):
+
+- The CSV is embedded so you can run the script as-is. parse_dates ensures PurchaseDate is a datetime.
+- describe() gives count, mean, std, min, max for numeric columns.
+- Converting columns to 'category' helps with grouping and plotting.
+- Groupby operations show average satisfaction by groups.
+- seaborn is used for readable visualizations: a boxplot for distribution by age group and a scatterplot for purchase amount vs satisfaction.
+
+References for libraries and plotting conventions: pandas documentation and seaborn examples provide additional options for customization<sup>2,3</sup>.
+
+---
+
+## 4. Suggested Extensions and Good Practices
+
+- Validate inputs: check for negative PurchaseAmount or out-of-range SatisfactionScore values.
+- Handle missing data explicitly and document the approach (imputation, exclusion, etc.).
+- For larger datasets, add an 'OrderID' and link to transactional records rather than storing all details in a flat table.
+- When sharing data, include a README and data dictionary (this codebook) and confirm compliance with privacy rules and IRB requirements where applicable.
+
+---
+
+## 5. Licensing and Attribution
+
+You may reuse and adapt this artifact for teaching or internal projects. If you publish analyses based on real data, include appropriate citations and respect data-use agreements.
+
+---
+
+## Sources
+
+1. <a href="https://www.icpsr.umich.edu/web/pages/datamanagement/cde/codebook/">ICPSR - Codebook and Data Documentation</a>
+2. <a href="https://pandas.pydata.org/docs/">pandas: powerful Python data analysis toolkit</a>
+3. <a href="https://seaborn.pydata.org/">seaborn: statistical data visualization</a>
+`;
+            document.getElementById('content').innerHTML = marked.parse(markdown);
+        } catch (e) {
+            console.error('Failed to render markdown:', e);
+            document.getElementById('content').innerText = `# Customer Satisfaction Dataset: Table, Codebook, and Analysis
+
+## Overview
+
+This artifact provides a concise, self-contained resource for working with a small, illustrative customer satisfaction dataset. It includes:
+
+- A clearly labeled data table (sample records)
+- A codebook that defines every variable and allowed values
+- A reproducible Python code snippet that loads, summarizes, and visualizes the data
+- Explanatory text and instructions for use
+
+The material is suitable for teaching, academic reports, or as a template for real-world data documentation and analysis. For best practices on data documentation, see the ICPSR codebook guidance and related resources<sup>1</sup>. For the Python data manipulation and visualization examples, the pandas and seaborn documentation were used as references<sup>2,3</sup>.
+
+---
+
+## 1. Sample Data Table
+
+Description: The table below is a small, fictional customer satisfaction dataset intended to demonstrate common data structures, categorical coding, and analysis workflows. Each row represents a customer interaction (a completed survey following a purchase).
+
+Table: Sample Customer Satisfaction Records
+
+| CustomerID | AgeGroup | Region  | SatisfactionScore | PurchaseAmount | Returned | PurchaseDate |
+|------------|----------|---------|-------------------:|----------------:|:--------:|--------------|
+| CUST001    | 25-34    | North   | 8                 | 120.50         | No       | 2026-01-12   |
+| CUST002    | 35-44    | South   | 6                 | 45.00          | Yes      | 2026-01-13   |
+| CUST003    | 18-24    | West    | 9                 | 250.00         | No       | 2026-01-14   |
+| CUST004    | 45-54    | East    | 4                 | 75.99          | No       | 2026-01-15   |
+| CUST005    | 25-34    | North   | 7                 | 99.95          | No       | 2026-01-16   |
+| CUST006    | 35-44    | West    | 5                 | 30.00          | Yes      | 2026-01-17   |
+
+Brief notes about the table:
+
+- CustomerID: Unique identifier for each respondent.
+- AgeGroup and Region are categorical variables used for group comparisons.
+- SatisfactionScore is an integer on a 1-10 scale (higher is better).
+- PurchaseAmount is in local currency units (decimal allowed).
+- Returned indicates whether the purchase was returned (Yes/No).
+- PurchaseDate is included for potential time-based analyses.
+
+---
+
+## 2. Codebook
+
+This codebook documents each variable in the table. Use it when preparing analyses or sharing data.
+
+| Variable Name     | Type       | Description                                                                 | Possible Values / Notes                         |
+|-------------------|------------|-----------------------------------------------------------------------------|-------------------------------------------------|
+| CustomerID        | Text       | Unique alphanumeric identifier for each customer (no duplicates).           | e.g., CUST001, CUST002, ...                    |
+| AgeGroup          | Categorical| Age range of the customer at time of survey.                                | '18-24', '25-34', '35-44', '45-54', '55+'      |
+| Region            | Categorical| Geographical region of purchase/delivery.                                   | 'North', 'South', 'East', 'West'               |
+| SatisfactionScore | Integer    | Self-reported satisfaction on a 1 (lowest) to 10 (highest) scale.           | 1,2,...,10                                      |
+| PurchaseAmount    | Numeric    | Total value of the purchase in local currency (two decimals).               | >= 0.00                                         |
+| Returned          | Categorical| Whether the item was returned after purchase.                               | 'Yes', 'No'                                     |
+| PurchaseDate      | Date       | Date of the purchase (ISO 8601 yyyy-mm-dd).                                 | e.g., '2026-01-12'                              |
+
+Codebook usage notes:
+
+- Missing values: Represent missing or unknown data as NA/null. Avoid using sentinel numbers (e.g., -99) without documenting them here.
+- Categorical ordering: For AgeGroup, you may use ordered categories for certain analyses (e.g., ordinal encoding).
+- Privacy: CustomerID is a pseudonymized ID. For real data, remove direct identifiers before sharing.
+
+Reference: For formal codebook templates and data documentation best practices, see ICPSR guidance<sup>1</sup>.
+
+---
+
+## 3. Analysis and Visualization (Python example)
+
+The following Python code demonstrates how to load the table into a pandas DataFrame, compute summary statistics, perform grouped comparisons, and create simple visualizations using seaborn/matplotlib.
+
+Notes before running the code:
+
+- The snippet assumes you have Python 3.8+ and the packages pandas, matplotlib, and seaborn installed. Install with: pip install pandas matplotlib seaborn
+- The data is embedded as CSV text in the snippet for reproducibility.
+
+\`\`\`python
+# Python analysis: load data, summarize, and visualize
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from io import StringIO
+
+# Embedded CSV data (small sample)
+csv_data = '''CustomerID,AgeGroup,Region,SatisfactionScore,PurchaseAmount,Returned,PurchaseDate
+CUST001,25-34,North,8,120.50,No,2026-01-12
+CUST002,35-44,South,6,45.00,Yes,2026-01-13
+CUST003,18-24,West,9,250.00,No,2026-01-14
+CUST004,45-54,East,4,75.99,No,2026-01-15
+CUST005,25-34,North,7,99.95,No,2026-01-16
+CUST006,35-44,West,5,30.00,Yes,2026-01-17
+'''
+
+# Read CSV into DataFrame
+df = pd.read_csv(StringIO(csv_data), parse_dates=['PurchaseDate'])
+
+# Basic data checks
+print('Data types:')
+print(df.dtypes)
+print('\\nFirst rows:')
+print(df.head())
+
+# Summary statistics for numeric variables
+print('\\nSummary statistics for numeric columns:')
+print(df[['SatisfactionScore', 'PurchaseAmount']].describe())
+
+# Convert categorical columns to category dtype (useful for memory and plotting)
+for col in ['AgeGroup', 'Region', 'Returned']:
+    df[col] = df[col].astype('category')
+
+# Grouped analysis: mean satisfaction by AgeGroup
+mean_by_age = df.groupby('AgeGroup')['SatisfactionScore'].mean().reset_index()
+print('\\nMean satisfaction by AgeGroup:')
+print(mean_by_age)
+
+# Visualization: Satisfaction distribution by AgeGroup
+sns.set_theme(style='whitegrid')
+plt.figure(figsize=(8,5))
+sns.boxplot(x='AgeGroup', y='SatisfactionScore', data=df, order=['18-24','25-34','35-44','45-54','55+'])
+plt.title('Satisfaction Score by Age Group')
+plt.xlabel('Age Group')
+plt.ylabel('Satisfaction Score (1-10)')
+plt.show()
+
+# Visualization: PurchaseAmount vs SatisfactionScore scatter
+plt.figure(figsize=(8,5))
+sns.scatterplot(x='PurchaseAmount', y='SatisfactionScore', hue='Region', data=df, s=80)
+plt.title('Purchase Amount vs Satisfaction')
+plt.xlabel('Purchase Amount')
+plt.ylabel('Satisfaction Score')
+plt.legend(title='Region')
+plt.show()
+
+# Simple test: Are returned items associated with lower satisfaction? Compute group means
+print('\\nMean satisfaction by Returned status:')
+print(df.groupby('Returned')['SatisfactionScore'].mean())
+\`\`\`
+
+Code explanation (brief):
+
+- The CSV is embedded so you can run the script as-is. parse_dates ensures PurchaseDate is a datetime.
+- describe() gives count, mean, std, min, max for numeric columns.
+- Converting columns to 'category' helps with grouping and plotting.
+- Groupby operations show average satisfaction by groups.
+- seaborn is used for readable visualizations: a boxplot for distribution by age group and a scatterplot for purchase amount vs satisfaction.
+
+References for libraries and plotting conventions: pandas documentation and seaborn examples provide additional options for customization<sup>2,3</sup>.
+
+---
+
+## 4. Suggested Extensions and Good Practices
+
+- Validate inputs: check for negative PurchaseAmount or out-of-range SatisfactionScore values.
+- Handle missing data explicitly and document the approach (imputation, exclusion, etc.).
+- For larger datasets, add an 'OrderID' and link to transactional records rather than storing all details in a flat table.
+- When sharing data, include a README and data dictionary (this codebook) and confirm compliance with privacy rules and IRB requirements where applicable.
+
+---
+
+## 5. Licensing and Attribution
+
+You may reuse and adapt this artifact for teaching or internal projects. If you publish analyses based on real data, include appropriate citations and respect data-use agreements.
+
+---
+
+## Sources
+
+1. <a href="https://www.icpsr.umich.edu/web/pages/datamanagement/cde/codebook/">ICPSR - Codebook and Data Documentation</a>
+2. <a href="https://pandas.pydata.org/docs/">pandas: powerful Python data analysis toolkit</a>
+3. <a href="https://seaborn.pydata.org/">seaborn: statistical data visualization</a>
+`;
+        }
+    </script>
+</body>
+</html>
